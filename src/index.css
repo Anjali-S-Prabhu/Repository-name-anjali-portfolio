@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Selection Style */
+  ::selection {
+    background-color: #facc15;
+    color: #000;
+  }
+
+  /* Hide default scrollbar */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Marching ants dashed border animation */
+  @keyframes marching-ants {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  .marching-ants-path {
+    stroke-dasharray: 6, 4;
+    animation: marching-ants 0.8s linear infinite;
+  }
+
+  /* Infinite marquee keyframe */
+  @keyframes marquee-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animate-marquee-left {
+    animation: marquee-left 25s linear infinite;
+  }
+
+  .animate-marquee-right {
+    animation: marquee-right 25s linear infinite;
+  }
+
+  .animate-marquee-fast-left {
+    animation: marquee-left 12s linear infinite;
+  }
+
+  .animate-marquee-fast-right {
+    animation: marquee-right 12s linear infinite;
+  }
+
+  /* Animated ASP initials: letters pop in, then the gradient shimmers */
+  @keyframes letter-in {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.7) rotate(-6deg);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-6px) scale(1.08) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(0deg);
+    }
+  }
+  .animate-letter-in {
+    animation: letter-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes initials-shimmer {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+  .initials-shimmer {
+    background-size: 200% auto;
+    animation: initials-shimmer 3.5s linear infinite;
+  }
+
+  /* Certificates modal transitions */
+  @keyframes modal-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  .animate-modal-in {
+    animation: modal-in 0.25s ease-out both;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out both;
+  }
+
+  @keyframes card-in {
+    0% {
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .animate-card-in {
+    animation: card-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+/* Base resets & dark modern feel */
+html, body {
+  background-color: #09090b; /* zinc-950 */
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #facc15;
+}
